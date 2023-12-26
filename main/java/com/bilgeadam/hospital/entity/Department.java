@@ -1,0 +1,7 @@
+package com.bilgeadam.hospital.entity;
+
+public enum Department {
+	
+	EMERGENCY, SURGERY, INTERNAL_MEDICINE, ORTHOPEDY, EYE_CARE, INTENSIVE_CARE, LABORATORY, RADIOLOGY, ADMINISTRATION
+
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="_layout::layout(~{::section})"> <!--layout(content)-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Personel Detail</title>
+</head>
+
+<body>
+	<section>
+		<hr>
+			<div class="container ">
+				<div class="card m-5">
+					<h5 class="card-header" th:text="#{personeldetail.baslik}"></h5>
+					<div class="card-body">
+					<table class="table">
+						<tr>
+							<td>
+								<label th:text="#{label.personel.firstname}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.firstName}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.lastname}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.lastName}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.department}" ></label>
+							</td>
+							<td>
+								<label th:text="${personel.department}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.title}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.title}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.gender}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.gender}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.birthdate}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.birthdate}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.startdate}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.startDate}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.enddate}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.endDate}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.gsm}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.mobile}"></label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label th:text="#{label.personel.email}"></label>
+							</td>
+							<td>
+								<label th:text="${personel.email}"></label>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>

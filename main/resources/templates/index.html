@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="_layout::layout(~{::section})"> <!--layout(content)-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section>
+		<div class="text-end pe-3">
+			<div>
+				<a class="pe-2" th:href="@{/locale(language=en)}" th:text="#{index.ingilizce}"></a>
+				<a class="pe-2" th:href="@{/locale(language=tr)}" th:text="#{index.turkce}"></a>
+				<a class="pe-2" th:href="@{/locale(language=de)}" th:text="#{index.almanca}"></a>
+			</div>
+		</div>
+		<div class="container text-center">
+			
+		
+			<h1 th:text="#{mainheader.baslik}"></h1>
+			<h5 th:text="#{index.developer(${adsoyad})}"></h5>
+			<p class="pt-5" th:text="#{index.aciklama}"></p>
+		</div>
+	</section>
+</body>
+
+</html>

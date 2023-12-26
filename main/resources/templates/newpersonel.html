@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="_layout::layout(~{::section})"> <!--layout(content)-->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="card m-5">
+				<h5 class="card-header" th:text="#{newpersonel.baslik}"></h5>
+				<div class="card-body">
+					<form th:action="@{/newpersonel}" th:object="${personel}" method="POST" class="form"
+						enctype="multipart/form-data">
+						<!-- form vasıtasıyla sunucu tarafına resim,pdf,excel,word gibi dosyalar upload
+	    edilmek isteniyorsa form etiketine enctype="multipart/form-data" eklenmeli-->
+	 
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.image}"></label>
+							<input type="file" id="img" name="img" accept="image/png, image/jpeg, image/webp"
+								class="form-control" onchange="document.getElementById('image').value=document.getElementById('img').value" />
+							<input type="hidden" id="image" name="image" th:field="*{image}"/>
+						</div>
+	<!--  
+						<div class="form-group mb-2">
+							<label>Departman</label>
+							<select class="form-control" name="department">
+								<option th:each="key:${departments.keySet()}" th:value="${key}" th:selected="(${key} == ${selectedDepartment})"
+									th:text="${departments.get(key)}">
+								</option>
+							</select>
+						</div>
+	-->
+	
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.firstname}"></label>
+							<input type="text" id="firstName" name="firstName" th:field="*{firstName}" class="form-control" />
+							<div class="alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+						</div>
+						
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.lastname}"></label>
+							<input type="text" id="lastName" name="lastName" th:field="*{lastName}" class="form-control" />
+							<div class="alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+						</div>
+						
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.gender}"></label>
+							<select class="form-control" name="gender" th:field="*{gender}">
+								<option th:each="tip:${T(com.bilgeadam.hospital.entity.Gender).values()}"
+									th:value="${tip}" th:text="${tip}">
+								</option>
+							</select>
+						</div>
+						
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.birthdate}"></label>
+							<input type="date" id="birthdate" name="birthdate" th:field="*{birthdate}"
+								class="form-control" />
+							<div class="alert alert-danger" th:if="${#fields.hasErrors('birthdate')}"
+								th:errors="*{birthdate}"></div>
+						</div>
+	
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.gsm}"></label>
+							<input type="text" id="mobile" name="mobile" th:field="*{mobile}" class="form-control" />
+							<div class="alert alert-danger" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></div>
+						</div>
+						
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.email}"></label>
+							<input type="text" id="email" name="email" th:field="*{email}" class="form-control" />
+							<div class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+						</div>
+	
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.title}"></label>
+							<select class="form-control" name="title" th:field="*{title}">
+								<option th:each="tip:${T(com.bilgeadam.hospital.entity.Title).values()}"
+									th:value="${tip}" th:text="${tip}">
+								</option>
+							</select>
+						</div>
+						
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.department}"></label>
+							<select class="form-control" name="department" th:field="*{department}">
+								<option th:each="tip:${T(com.bilgeadam.hospital.entity.Department).values()}"
+									th:value="${tip}" th:text="${tip}">
+								</option>
+							</select>
+						</div>
+	
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.startdate}"></label>
+							<input type="date" id="startDate" name="startDate" th:field="*{startDate}"
+								class="form-control" />
+							<div class="alert alert-danger" th:if="${#fields.hasErrors('startDate')}"
+								th:errors="*{startDate}"></div>
+						</div>
+						
+						<div class="form-group mb-2">
+							<label th:text="#{label.personel.enddate}"></label>
+							<input type="date" id="endDate" name="endDate" th:field="*{endDate}"
+								class="form-control" />
+							<div class="alert alert-danger" th:if="${#fields.hasErrors('endDate')}"
+								th:errors="*{endDate}"></div>
+						</div>
+						
+						<div class="box-footer">
+							<input type="submit" value="Kaydet" class="btn btn-primary mt-2">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
